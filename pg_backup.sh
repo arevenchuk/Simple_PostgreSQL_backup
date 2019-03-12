@@ -4,6 +4,7 @@ BACKUP_DIR="`pwd`/`date +%F_%H-%M`"
 PSQL="psql -At postgres"
 
 mkdir $BACKUP_DIR
+if [ $? != 0 ]; then exit 1; fi
 
 echo "`date` Backup configuration files:"
 echo "[config]" >> $BACKUP_DIR/.backup.history
